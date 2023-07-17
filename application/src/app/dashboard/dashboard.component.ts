@@ -18,9 +18,6 @@ export class DashboardComponent {
   }
 
   getTasks(){
-    this.taskService.getTasks().subscribe(tasks => {
-      this.tasks = tasks
-      console.log(this.tasks[0].category.name)
-    });
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
   }
 }
