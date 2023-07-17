@@ -1,0 +1,14 @@
+nav{
+  display: flex;
+  & a{
+    margin-right: 6px;
+  }
+}
+
+nav a{
+  margin-right: 6px;
+}
+
+nav{
+  background: red;
+}
