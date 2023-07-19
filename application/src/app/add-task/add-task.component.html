@@ -1,0 +1,34 @@
+<div class="add-task">
+  <p>Add new task:</p>
+  <form #addForm="ngForm">
+    <div>
+      <p>Name:</p>
+      <input id="name" name="name" [(ngModel)]="name" #taskName="ngModel" required>
+      <div class="error error-name" *ngIf="taskName.errors?.['required']">
+        Name is required.
+      </div>
+    </div>
+    <div>
+      <p>Description:</p>
+      <input name="description" [(ngModel)]="description" #taskDescription="ngModel" required>
+      <div class="error error-description" *ngIf="taskDescription.errors?.['required']">
+        Description is required.
+      </div>
+    </div>
+    <div>
+      <p>Deadline:</p>
+      <input type="Date" name="deadline" [(ngModel)]="deadline" #taskDeadline="ngModel" required>
+    </div>
+    <div>
+      <p>Category:</p>
+      <select name="category" [(ngModel)]="category">
+        <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
+      </select>
+    </div>
+    <div>
+      <button (click)="addTask()">Add new task</button>
+    </div>
+  </form>
+</div>
+
+

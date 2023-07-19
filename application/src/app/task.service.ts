@@ -14,6 +14,7 @@ export class TaskService{
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+
   };
 
   constructor(private http: HttpClient) {
@@ -23,6 +24,13 @@ export class TaskService{
     return this.http.get<Task[]>(this.tasksUrl)
       .pipe(
         catchError(this.handleError<Task[]>('getTasks', []))
+      )
+  }
+
+  addTask(task: Task): Observable<Task>{
+    return <Observable<Task>> this.http.post<Task>(this.tasksUrl, task)
+      .pipe(
+        catchError(this.handleError<Task[]>('AddTask', []))
       )
   }
 
