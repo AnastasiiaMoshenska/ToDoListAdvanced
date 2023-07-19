@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Category} from "../category";
 import {CategoryService} from "../category.service";
 import {TaskService} from "../task.service";
@@ -18,6 +18,7 @@ export class AddTaskComponent {
   category: Category = this.categories[0];
   newTask: Task = {id: 1, name: this.name, description: this.description, deadline: this.deadline, category: this.category};
 
+  @Input() tasks!: Task[]
   constructor(private categoryService: CategoryService, private taskService: TaskService) {
   }
 
@@ -25,9 +26,19 @@ export class AddTaskComponent {
     this.getCategories();
   }
 
-  public addTask(){
-    this.newTask = {id: 1, name: this.name, description: this.description, deadline: this.deadline, category: this.category}
-    this.taskService.addTask(this.newTask).subscribe(() => {});
+  public addTask() {
+    if (this.name && this.description) {
+      this.newTask = {
+        id: this.tasks[this.tasks.length - 1].id + 1,
+        name: this.name,
+        description: this.description,
+        deadline: this.deadline,
+        category: this.category
+      }
+      this.taskService.addTask(this.newTask).subscribe(() => {
+        this.tasks.push(this.newTask);
+      });
+    }
   }
 
   getCategories(){
