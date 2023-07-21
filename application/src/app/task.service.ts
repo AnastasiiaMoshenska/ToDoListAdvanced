@@ -13,7 +13,9 @@ export class TaskService{
   private tasksUrl = 'http://localhost:8080/tasks';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
 
   };
 
@@ -31,6 +33,13 @@ export class TaskService{
     return <Observable<Task>> this.http.post<Task>(this.tasksUrl, task)
       .pipe(
         catchError(this.handleError<Task[]>('AddTask', []))
+      )
+  }
+
+  deleteTask(id: number): Observable<any>{
+    return this.http.delete<Task[]>(`${this.tasksUrl}/${id}`)
+      .pipe(
+        catchError(this.handleError<Task[]>('DeleteTask', []))
       )
   }
 

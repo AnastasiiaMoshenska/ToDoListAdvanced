@@ -4,5 +4,6 @@
   <p>{{task.description}}</p>
   <p>{{task.deadline | date:"MM/dd/yy"}}</p>
   <p>{{task.category.name}}</p>
+  <button (click)="deleteTask(task.id)">Delete</button>
 </div>
 

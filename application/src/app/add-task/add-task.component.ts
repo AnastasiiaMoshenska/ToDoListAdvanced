@@ -29,7 +29,7 @@ export class AddTaskComponent {
   public addTask() {
     if (this.name && this.description) {
       this.newTask = {
-        id: this.tasks[this.tasks.length - 1].id + 1,
+        id: this.tasks.length ? this.tasks[this.tasks.length - 1].id + 1 : 1,
         name: this.name,
         description: this.description,
         deadline: this.deadline,
