@@ -14,16 +14,12 @@ export class AddTaskComponent {
   name: string = '';
   description: string = '';
   deadline: Date = new Date();
-  categories: Category[] = [];
-  category: Category = this.categories[0];
+  @Input() categories!: Category[];
+  @Input() category!: Category;
   newTask: Task = {id: 1, name: this.name, description: this.description, deadline: this.deadline, category: this.category};
 
   @Input() tasks!: Task[]
-  constructor(private categoryService: CategoryService, private taskService: TaskService) {
-  }
-
-  ngOnInit(){
-    this.getCategories();
+  constructor(private taskService: TaskService) {
   }
 
   public addTask() {
@@ -39,12 +35,5 @@ export class AddTaskComponent {
         this.tasks.push(this.newTask);
       });
     }
-  }
-
-  getCategories(){
-    this.categoryService.getCategories().subscribe(categories => {
-      this.categories = categories
-      this.category = this.categories[0];
-    });
   }
 }
