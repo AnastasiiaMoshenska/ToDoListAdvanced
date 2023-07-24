@@ -17,7 +17,14 @@
     </div>
     <div>
       <p>Deadline:</p>
-      <input type="Date" name="deadline" [(ngModel)]="deadline" #taskDeadline="ngModel" required>
+      <input
+        type="Date"
+        name="deadline"
+        [ngModel]="deadline | date:'yyyy-MM-dd'"
+        (ngModelChange)="deadline = $event"
+        #taskDeadline="ngModel"
+        required
+      >
     </div>
     <div>
       <p>Category:</p>

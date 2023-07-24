@@ -14,7 +14,9 @@ export class TaskService{
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Accept': 'application/json'
     })
 
   };
@@ -37,9 +39,16 @@ export class TaskService{
   }
 
   deleteTask(id: number): Observable<any>{
-    return this.http.delete<Task[]>(`${this.tasksUrl}/${id}`)
+    return this.http.delete<Task>(`${this.tasksUrl}/${id}`)
       .pipe(
-        catchError(this.handleError<Task[]>('DeleteTask', []))
+        catchError(this.handleError<Task>('DeleteTask' ))
+      )
+  }
+
+  editTask(task: Task): Observable<Task>{
+    return this.http.put<Task>(`${this.tasksUrl}/${task.id}`, task, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<Task>('UpdateTask'))
       )
   }
 

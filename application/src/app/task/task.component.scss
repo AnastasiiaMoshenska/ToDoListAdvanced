@@ -1,11 +1,25 @@
-div{
-  display: flex;
-  p{
-    margin-right: 16px;
+button {
+  height: 30px;
+  margin: 4px 0;
+  width: 60px;
+  &:nth-child(1){
+    margin-right: 6px;
   }
-  button{
-    height: 30px;
-    margin-top: auto;
-    margin-bottom: auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0 4px;
+}
+
+input:read-only{
+  border: solid white;
+  pointer-events: none;
+}
+
+input{
+  &.empty{
+    border: solid red;
   }
 }

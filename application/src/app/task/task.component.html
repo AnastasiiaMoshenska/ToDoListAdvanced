@@ -1,9 +1,20 @@
-<div>
-  <p>{{task.id}}</p>
-  <p>{{task.name}}</p>
-  <p>{{task.description}}</p>
-  <p>{{task.deadline | date:"MM/dd/yy"}}</p>
-  <p>{{task.category.name}}</p>
+<td>{{task.id}}</td>
+<td><input [ngClass]="{'empty': !task.name}" [(ngModel)]="task.name" [readonly]="isReadOnly"></td>
+<td><input [ngClass]="{'empty': !task.description}" [(ngModel)]="task.description" [readonly]="isReadOnly"></td>
+<td><input
+  type="date"
+  [ngModel]="task.deadline | date:'yyyy-MM-dd'"
+  [readonly]="isReadOnly"
+  (ngModelChange)="task.deadline = $event"
+></td>
+<td>
+  <select name="category" [(ngModel)]="task.category" [disabled]="isReadOnly">
+    <option *ngFor="let category of categories" [ngValue]="task.category">{{category.name}}</option>
+  </select>
+</td>
+<td>
   <button (click)="deleteTask(task.id)">Delete</button>
-</div>
+  <button (click)="editTask(task.id)">{{editAction}}</button>
+</td>
 
+<p>{{task.category.name}}</p>

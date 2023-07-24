@@ -1,3 +1,17 @@
-<app-add-task [tasks]="tasks"></app-add-task>
+<app-add-task [tasks]="tasks" [categories]="categories" [category]="category"></app-add-task>
 <h3>Tasks:</h3>
-<app-task *ngFor="let task of tasks" [(tasks)]="tasks" [task]="task"></app-task>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Deadline</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-task *ngFor="let task of tasks" [(tasks)]="tasks" [task]="task" [categories]="categories"></tr>
+  </tbody>
+</table>
