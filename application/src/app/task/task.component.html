@@ -8,13 +8,15 @@
   (ngModelChange)="task.deadline = $event"
 ></td>
 <td>
-  <select name="category" [(ngModel)]="task.category" [disabled]="isReadOnly">
-    <option *ngFor="let category of categories" [ngValue]="task.category">{{category.name}}</option>
+  <p [ngClass]="{'label': !isHidden}">{{task.category.name}}</p>
+  <select name="category" [(ngModel)]="task.category" [disabled]="isReadOnly" [hidden]="isHidden">
+    <option
+      *ngFor="let category of categories"
+      [ngValue]="category"
+    >{{category.name}}</option>
   </select>
 </td>
 <td>
   <button (click)="deleteTask(task.id)">Delete</button>
   <button (click)="editTask(task.id)">{{editAction}}</button>
 </td>
-
-<p>{{task.category.name}}</p>
