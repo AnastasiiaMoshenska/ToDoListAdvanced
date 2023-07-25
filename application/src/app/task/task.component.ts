@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Task} from "../task";
-import {CategoryService} from "../category.service";
 import {Category} from "../category";
 import {TaskService} from "../task.service";
 
@@ -16,12 +15,9 @@ export class TaskComponent {
   @Output() tasksChange = new EventEmitter<Task[]>();
   editAction: string = "Edit"
   isReadOnly: boolean = true
+  isHidden: boolean = true
 
   constructor(private taskService: TaskService) {
-  }
-
-  ngInit(): void{
-
   }
 
   public deleteTask(id: number){
@@ -32,19 +28,18 @@ export class TaskComponent {
   }
 
   public editTask(id: number) {
-    console.log(this.task)
     if (this.editAction == "Edit") {
       this.editAction = "Save"
       this.isReadOnly = false
+      this.isHidden = false
     } else if(this.task.name && this.task.description){
       this.taskService.editTask(this.task).subscribe(
         () => {
           this.editAction = "Edit"
           this.isReadOnly = true
+          this.isHidden = true
         }
       );
-    } else {
-
     }
   }
 }
