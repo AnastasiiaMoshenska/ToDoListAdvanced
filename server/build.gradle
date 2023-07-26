@@ -21,4 +21,5 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	systemProperty("spring.config.location", "classpath:application-test.properties")
 }
