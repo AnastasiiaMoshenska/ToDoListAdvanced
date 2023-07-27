@@ -5,8 +5,6 @@ import ch.cern.todo.service.TaskService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-
 @RestController
 @RequestMapping("/tasks")
 @CrossOrigin
@@ -20,6 +18,11 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<Iterable<Task>> getTasks(){
         return ResponseEntity.ok().body(taskService.getTasks());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> getTaskById(@PathVariable(name="id") int taskId){
+        return ResponseEntity.ok().body(taskService.getTaskById(taskId));
     }
 
     @PostMapping

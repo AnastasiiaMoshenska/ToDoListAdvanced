@@ -15,6 +15,11 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public Task getTaskById(int taskId) {
+        return taskRepository.findById(taskId).orElseThrow(RuntimeException::new);
+    }
+
+    @Override
     public Task addTask(Task task) {
         return taskRepository.save(task);
     }
