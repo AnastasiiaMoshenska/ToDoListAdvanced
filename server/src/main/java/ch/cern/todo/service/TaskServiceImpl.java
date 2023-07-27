@@ -30,11 +30,11 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void updateTask(Task task) {
-        Task current = taskRepository.findById(task.getId()).orElseThrow(RuntimeException::new);
-        current.setCategory(task.getCategory());
-        current.setDeadline(task.getDeadline());
-        current.setName(task.getName());
-        current.setDescription(task.getDescription());
-        current = taskRepository.save(current);
+        Task currentTask = taskRepository.findById(task.getId()).orElseThrow(RuntimeException::new);
+        currentTask.setCategory(task.getCategory());
+        currentTask.setDeadline(task.getDeadline());
+        currentTask.setName(task.getName());
+        currentTask.setDescription(task.getDescription());
+        taskRepository.save(currentTask);
     }
 }
