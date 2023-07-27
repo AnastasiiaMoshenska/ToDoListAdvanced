@@ -3,7 +3,6 @@ package ch.cern.todo.controller;
 import ch.cern.todo.persistence.model.Category;
 import ch.cern.todo.persistence.model.Task;
 import ch.cern.todo.persistence.repository.TaskRepository;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
