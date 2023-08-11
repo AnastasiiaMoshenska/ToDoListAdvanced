@@ -13,7 +13,7 @@ export class TaskComponent {
   @Input() tasks!: Task[];
   @Input() categories!: Category[];
   @Output() tasksChange = new EventEmitter<Task[]>();
-  editAction: string = "Edit"
+  editAction: string = "edit"
   isReadOnly: boolean = true
   isHidden: boolean = true
 
@@ -28,14 +28,14 @@ export class TaskComponent {
   }
 
   public editTask(id: number) {
-    if (this.editAction == "Edit") {
-      this.editAction = "Save"
+    if (this.editAction == "edit") {
+      this.editAction = "save"
       this.isReadOnly = false
       this.isHidden = false
     } else if(this.task.name && this.task.description){
       this.taskService.editTask(this.task).subscribe(
         () => {
-          this.editAction = "Edit"
+          this.editAction = "edit"
           this.isReadOnly = true
           this.isHidden = true
         }

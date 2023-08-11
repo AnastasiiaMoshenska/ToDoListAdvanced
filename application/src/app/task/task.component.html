@@ -17,6 +17,6 @@
   </select>
 </td>
 <td>
-  <button (click)="deleteTask(task.id)">Delete</button>
-  <button (click)="editTask(task.id)">{{editAction}}</button>
+  <button class="delete" (click)="deleteTask(task.id)">Delete</button>
+  <button class="{{editAction}}" (click)="editTask(task.id)">{{editAction}}</button>
 </td>
