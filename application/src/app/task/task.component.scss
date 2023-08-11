@@ -33,3 +33,23 @@ p{
   font-size: 8px;
   margin-top: -6px;
 }
+
+button{
+  text-transform: capitalize;
+}
+
+.delete{
+  background: lightcoral;
+}
+
+.edit{
+  background: lightsalmon;
+}
+
+.save{
+  background: lightgreen;
+}
+
+td:nth-child(5){
+  width: 90px;
+}
