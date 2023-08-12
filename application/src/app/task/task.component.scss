@@ -36,6 +36,8 @@ p{
 
 button{
   text-transform: capitalize;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .delete{
@@ -43,7 +45,7 @@ button{
 }
 
 .edit{
-  background: lightsalmon;
+  background: lightblue;
 }
 
 .save{
