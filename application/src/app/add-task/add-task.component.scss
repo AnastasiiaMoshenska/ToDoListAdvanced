@@ -7,14 +7,14 @@ form{
     position: relative;
     .error{
       position: absolute;
-      bottom: -6px;
+      bottom: -9px;
       color: red;
       font-size: 12px;
       &-name{
-        left: 52px;
+        left: 48px;
       }
       &-description{
-        left: 88px;
+        left: 78px;
       }
     }
   }
@@ -26,7 +26,7 @@ form{
     height: 30px;
   }
   button{
-    margin-left: 50px;
+    margin-left: 30px;
     height: 32px;
   }
   select{
@@ -39,4 +39,10 @@ form{
   padding: 10px;
   margin: 10px 0;
   border-radius: 6px;
+}
+
+.active{
+  background: lightgreen;
+  border: 1px solid black;
+  border-radius: 3px;
 }

@@ -33,7 +33,7 @@
       </select>
     </div>
     <div>
-      <button (click)="addTask()">Add new task</button>
+      <button [ngClass]="this.name && this.description ? 'active' : ''" (click)="addTask()">Add new task</button>
     </div>
   </form>
 </div>
