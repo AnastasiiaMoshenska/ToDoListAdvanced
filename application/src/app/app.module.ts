@@ -9,6 +9,7 @@ import { TaskComponent } from './task/task.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AddTaskComponent } from './add-task/add-task.component';
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from "@angular/forms";
     DashboardComponent,
     SettingsComponent,
     TaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

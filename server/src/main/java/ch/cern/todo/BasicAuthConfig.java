@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "basic.auth")
-public class BasicAuthConfigProperties {
+public class BasicAuthConfig {
     private String username;
     private String password;
 }

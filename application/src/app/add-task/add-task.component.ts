@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Category} from "../category";
-import {TaskService} from "../task.service";
+import {TaskService} from "../services/task.service";
 import {Task} from "../task";
 
 @Component({

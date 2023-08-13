@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Task} from "../task";
 import {Category} from "../category";
-import {TaskService} from "../task.service";
+import {TaskService} from "../services/task.service";
 
 @Component({
   selector: '[app-task]',
