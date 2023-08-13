@@ -10,7 +10,7 @@ import {catchError} from "rxjs/operators";
 
 export class TaskService{
 
-  private tasksUrl = 'http://localhost:8080/tasks';
+  private tasksUrl = '/api/tasks';
 
   httpOptions = {
     headers: new HttpHeaders({
