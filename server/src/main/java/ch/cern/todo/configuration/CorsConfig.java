@@ -1,4 +1,4 @@
-package ch.cern.todo;
+package ch.cern.todo.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
