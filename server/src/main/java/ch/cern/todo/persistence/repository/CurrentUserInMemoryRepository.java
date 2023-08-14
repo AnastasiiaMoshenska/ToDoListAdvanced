@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 @Component
 public class CurrentUserInMemoryRepository {
-    private final HashMap<String, CurrentUser> REGISTERED_USERS = new HashMap<String, CurrentUser>(2);
+    private final HashMap<String, CurrentUser> REGISTERED_USERS = new HashMap<>(2);
 
     @PostConstruct
     public void setUpUsers(){

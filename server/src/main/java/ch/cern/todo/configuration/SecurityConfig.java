@@ -46,9 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http = http.cors().and().csrf().disable();
 
         http = http.exceptionHandling().authenticationEntryPoint(
-                (request, response, authException) -> {
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
-                }).and();
+                (request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage())).and();
 
         http.authorizeRequests()
                 .antMatchers("/api/login").permitAll()
