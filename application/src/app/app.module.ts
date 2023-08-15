@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TaskComponent } from './task/task.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AddTaskComponent } from './add-task/add-task.component';
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
+import {RequestInterceptor} from "./request.interceptor";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     DashboardComponent,
     SettingsComponent,
     TaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import {FormsModule} from "@angular/forms";
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
