@@ -50,13 +50,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/api/login").permitAll()
-                //.anyRequest().authenticated();
-                .anyRequest().permitAll();
+                .anyRequest().authenticated();
 
         http.addFilterBefore(
                 sessionFilter,
                 UsernamePasswordAuthenticationFilter.class
         );
+
+        http.headers().frameOptions().sameOrigin();
     }
 
     @Override
