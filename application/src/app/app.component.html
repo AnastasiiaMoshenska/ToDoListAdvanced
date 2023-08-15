@@ -1,5 +1,7 @@
-<nav>
+<nav *ngIf="showNavBar()">
   <a routerLink="dashboard">Dashboard</a>
   <a routerLink="settings">Settings</a>
 </nav>
+
 <router-outlet></router-outlet>
+

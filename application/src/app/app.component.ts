@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ToDoList';
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+
+  showNavBar(): boolean{
+    const currentRoutePath = this.router.routerState.snapshot.url;
+    return currentRoutePath !== '/login';
+  }
 }
