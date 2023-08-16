@@ -1,24 +1,26 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
-import {Category} from "../category";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class CategoryService{
+export class LoginService{
 
-  private categoryUrl = '/api/categories';
+  private url = '/api/login';
 
   constructor(private http: HttpClient) {
   }
 
-  getCategories(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.categoryUrl)
+  login(userName: String, password: String){
+    return this.http.post<any>(this.url, {
+      userName: userName,
+      password: password
+    })
       .pipe(
-        catchError(this.handleError<Category[]>('getCategories', []))
+        catchError(this.handleError<any>("login", []))
       )
   }
 
@@ -29,4 +31,5 @@ export class CategoryService{
       return of(result as T);
     }
   }
+
 }
